@@ -22,6 +22,7 @@ namespace Dynamo
         public static string DynamoTestPath = null;
         private string numberFormat;
         private string lastUpdateDownloadPath;
+        private int maxNumRecentFiles;
         
         // Variables of the settings that will be persistent
 
@@ -74,8 +75,12 @@ namespace Dynamo
         /// </summary>
         public int MaxNumRecentFiles
         {
-            get { return 10; }
-            set { }
+            get { return maxNumRecentFiles; }
+            set
+            {
+                maxNumRecentFiles = value;
+                RaisePropertyChanged("MaxNumRecentFiles");
+            }
         }
 
         /// <summary>

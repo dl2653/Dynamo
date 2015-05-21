@@ -1056,7 +1056,8 @@ namespace Dynamo.ViewModels
 
             if (RecentFiles.Count > Model.PreferenceSettings.MaxNumRecentFiles)
             {
-                RecentFiles = new ObservableCollection<string>(RecentFiles.Take(Model.PreferenceSettings.MaxNumRecentFiles));
+                RecentFiles.RemoveRange(Model.PreferenceSettings.MaxNumRecentFiles, RecentFiles.Count -
+                    Model.PreferenceSettings.MaxNumRecentFiles);
             }
         }
 
